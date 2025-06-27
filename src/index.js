@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import Wellcome from './Wellcome'
+// import Wellcome from './Wellcome'
 
 // example 1:
 // const element = <h1>Hello anh em!</h1>
@@ -24,22 +24,24 @@ import Wellcome from './Wellcome'
 // setInterval(tick, 1000)
 
 // example 3:
-const root = ReactDOM.createRoot(document.getElementById('root'))
+// const root = ReactDOM.createRoot(document.getElementById('root'))
 // const element = <Wellcome name='Bé Bình' />
-const element = (
-  <div>
-    <Wellcome name='Bé Bình' age='25' />
-    <Wellcome name='Bé Ka' age='27' />
-    <Wellcome name='Bé Khanh' age='29' />
-  </div>
-)
-root.render(element)
-
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
+// const element = (
+//   <div>
+//     <Wellcome name='Bé Bình' age='25' />
+//     <Wellcome name='Bé Ka' age='27' />
+//     <Wellcome name='Bé Khanh' age='29' />
+//   </div>
 // )
+// root.render(element)
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
