@@ -12,13 +12,30 @@ export default class Clock extends React.Component {
       }
     }
     this.date = '28/06/2025'
+    this.getTime = this.getTime.bind(this)
+    //Không setState bên trong constructor.
+    //Không gán this.props vào state vì constructor chỉ chạy 1 lần nên giá trị của this.state sẽ không change theo this.props
+    //Nếu muốn tạo 1 biến lưu data mà không cập nhật lại giá trị thì tạo như biến this.date luôn không cần bỏ vào this.state
   }
 
-  getTime = () => {
-    // this.setState({
-    //   time: new Date().toLocaleTimeString()
-    // })
+  // getTime = () => {
+  //   // this.setState({
+  //   //   time: new Date().toLocaleTimeString()
+  //   // })
 
+  //   const newState = {
+  //     ...this.state,
+  //     time: {
+  //       created: new Date().toLocaleTimeString()
+  //     },
+  //     seconds: {
+  //       created: new Date().getSeconds()
+  //     }
+  //   }
+  //   this.setState(newState)
+  // }
+
+  getTime() {
     const newState = {
       ...this.state,
       time: {
