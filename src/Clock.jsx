@@ -1,5 +1,13 @@
 import React from 'react'
 
+const lists = ['Merceides', 'BMW', 'Toyota']
+const fetchApi = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(lists)
+    }, 1000)
+  })
+}
 export default class Clock extends React.Component {
   constructor(props) {
     super(props)
@@ -9,13 +17,26 @@ export default class Clock extends React.Component {
       },
       seconds: {
         created: new Date().getSeconds()
-      }
+      },
+      lists: []
     }
     this.date = '28/06/2025'
     this.getTime = this.getTime.bind(this)
     //Không setState bên trong constructor.
     //Không gán this.props vào state vì constructor chỉ chạy 1 lần nên giá trị của this.state sẽ không change theo this.props
     //Nếu muốn tạo 1 biến lưu data mà không cập nhật lại giá trị thì tạo như biến this.date luôn không cần bỏ vào this.state
+  }
+
+  componentDidMount() {
+    // const seconds = document.getElementById('seconds')
+    // console.log('Seconds: ', seconds)
+
+    fetchApi().then((res) =>
+      this.setState((prevState) => ({
+        ...prevState,
+        lists: res
+      }))
+    )
   }
 
   // getTime = () => {
@@ -49,11 +70,13 @@ export default class Clock extends React.Component {
   }
 
   render() {
+    console.log('this.state: ', this.state)
+
     return (
       <div>
         <h1>Hello anh em</h1>
         <h2>Bây giờ là {this.state.time.created}</h2>
-        <h3>Bây giờ là {this.state.seconds.created}</h3>
+        <h3 id='seconds'>Bây giờ là {this.state.seconds.created}</h3>
         <h4>Ngày {this.date}</h4>
         <button onClick={this.getTime}>Get time</button>
       </div>
