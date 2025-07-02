@@ -11,6 +11,7 @@ const fetchApi = () => {
 export default class Clock extends React.Component {
   constructor(props) {
     super(props)
+    console.log('constructor')
     this.state = {
       time: {
         created: new Date().toLocaleTimeString()
@@ -31,6 +32,7 @@ export default class Clock extends React.Component {
   componentDidMount() {
     // const seconds = document.getElementById('seconds')
     // console.log('Seconds: ', seconds)
+    console.log('componentDidMount')
 
     fetchApi().then((res) =>
       this.setState((prevState) => ({
@@ -41,7 +43,7 @@ export default class Clock extends React.Component {
   }
 
   componentDidUpdate() {
-    // console.log('componentDidUpdate')
+    console.log('componentDidUpdate')
 
     // if (this.state.darkMode) {
     //   const value = document.querySelector('input').value
@@ -56,6 +58,10 @@ export default class Clock extends React.Component {
         }))
       )
     }
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
   }
 
   // getTime = () => {
@@ -96,7 +102,8 @@ export default class Clock extends React.Component {
   }
 
   render() {
-    console.log('this.state: ', this.state)
+    // console.log('this.state: ', this.state)
+    console.log('render')
 
     return (
       <div>
