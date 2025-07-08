@@ -1,7 +1,9 @@
 // import logo from './logo.svg'
-import { useState } from 'react'
-import './App.css'
-import Clock from './Clock'
+// import { useState } from 'react'
+// import './App.css'
+// import Clock from './Clock'
+import BareInput from './BareInput'
+import Layout from './Layput'
 
 // function App() {
 //   return (
@@ -20,12 +22,23 @@ import Clock from './Clock'
 //   )
 // }
 
+// function App() {
+//   const [visible, setVisible] = useState(true)
+//   return (
+//     <div className='App'>
+//       <button onClick={() => setVisible(false)}>Hide Clock</button>
+//       {visible && <Clock />}
+//     </div>
+//   )
+// }
+
 function App() {
-  const [visible, setVisible] = useState(true)
   return (
     <div className='App'>
-      <button onClick={() => setVisible(false)}>Hide Clock</button>
-      {visible && <Clock />}
+      <Layout>
+        <h1>Hello</h1>
+        <BareInput value='1000' autoFocus className='input-control' onChange={() => {}} />
+      </Layout>
     </div>
   )
 }
